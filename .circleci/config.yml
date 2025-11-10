@@ -6,24 +6,24 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dependencies
+          name: Install dependencies (client)
           command: |
             cd client
             npm install
       - run:
-          name: Run tests
+          name: Run tests (client)
           command: |
             cd client
             npm test
-      - setup_remote_docker
-      - run:
-          name: Build Docker image
-          command: |
-            cd client
-            docker build -t rashmikasvr777/farmstream:latest .
+      # Add a docker build step if needed, also within client
+      # - setup_remote_docker
+      # - run:
+      #     name: Build Docker image
+      #     command: |
+      #       cd client
+      #       docker build -t your-dockerhub-username/farmstream:latest .
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
-
