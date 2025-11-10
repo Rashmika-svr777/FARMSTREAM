@@ -5,23 +5,9 @@ jobs:
       - image: cimg/node:18.17.0
     steps:
       - checkout
-      - run:
-          name: Install dependencies (client)
-          command: |
-            cd client
-            npm install
-      - run:
-          name: Run tests (client)
-          command: |
-            cd client
-            npm test
-      # Add a docker build step if needed, also within client
-      # - setup_remote_docker
-      # - run:
-      #     name: Build Docker image
-      #     command: |
-      #       cd client
-      #       docker build -t your-dockerhub-username/farmstream:latest .
+      - run: npm install
+      - run: npm test
+      # add further build steps as needed
 workflows:
   version: 2
   build_and_test:
