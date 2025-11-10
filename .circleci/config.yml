@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
-      # add further build steps as needed
+      # Add additional build, lint, or deploy steps here as needed
 workflows:
   version: 2
   build_and_test:
